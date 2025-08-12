@@ -1,0 +1,53 @@
+/* Estilos para las secciones del portafolio */
+
+/* Clase base para todas las secciones */
+.section {
+  padding: 8rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Títulos de sección */
+.section-title {
+  font-size: 2.8rem;
+  margin-bottom: 5rem;
+  color: var(--text-color);
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+  padding-bottom: 1.5rem;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: var(--accent-color);
+  border-radius: 2px;
+}
+
+/* Espaciado específico para la primera sección debajo del navbar */
+.section:first-of-type {
+  padding-top: 10rem;
+}
+
+/* Ajustes responsivos */
+@media (max-width: 768px) {
+  .section {
+    padding: 6rem 1.5rem;
+  }
+  
+  .section:first-of-type {
+    padding-top: 8rem;
+  }
+  
+  .section-title {
+    font-size: 2.2rem;
+    margin-bottom: 3.5rem;
+  }
+}
