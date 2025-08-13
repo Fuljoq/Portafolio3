@@ -77,8 +77,16 @@
               <li><a href="#about" onClick={(e) => scrollToSection(e, '#about')}>{language === 'es' ? 'Sobre Mí' : 'About'}</a></li>
               <li><NavLink to="/contact" className={({ isActive }) => isActive ? 'active' : ''}>{language === 'es' ? 'Contacto' : 'Contact'}</NavLink></li>
               <li>
-                <button onClick={toggleLanguage} className="language-toggle">
-                  {language === 'es' ? 'EN' : 'ES'}
+                <button onClick={toggleLanguage} className="language-toggle" aria-label={language === 'es' ? 'Cambiar a inglés' : 'Switch to Spanish'}>
+                  <img 
+                    src={language === 'es' 
+                      ? 'https://flagcdn.com/w20/us.png' 
+                      : 'https://flagcdn.com/w20/ar.png'} 
+                    alt={language === 'es' ? 'English' : 'Español'}
+                    width="20"
+                    height="15"
+                    className="flag-icon"
+                  />
                 </button>
               </li>
             </ul>
