@@ -1,7 +1,15 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './ProjectCard.css';
 
-const ProjectCard = ({ title, description, technologies, codeLink, demoLink }) => {
+const ProjectCard = ({ 
+  title, 
+  description, 
+  technologies, 
+  codeLink, 
+  demoLink,
+  viewCodeText = 'View Code',
+  viewDemoText = 'View Demo'
+}) => {
   const [isVisible, setIsVisible] = useState(false);
   const cardRef = useRef(null);
 
@@ -36,13 +44,13 @@ const ProjectCard = ({ title, description, technologies, codeLink, demoLink }) =
           <span key={index} className="tech-tag">{tech}</span>
         ))}
       </div>
-      {demoLink && (
-        <div className="project-links">
-          <a href={demoLink} target="_blank" rel="noopener noreferrer" className="project-link">
-            Ver Demo
+      <div className="project-links">
+        {demoLink && (
+          <a href={demoLink} target="_blank" rel="noopener noreferrer" className="project-link demo-link">
+            {viewDemoText}
           </a>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 };

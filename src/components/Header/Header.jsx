@@ -1,11 +1,33 @@
-  import React, { useState, useEffect } from 'react';
+  import React, { useState, useEffect, useContext, createContext } from 'react';
   import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
   import './Header.css';
+
+  // Create a context for language
+  export const LanguageContext = createContext({
+    language: 'es',
+    toggleLanguage: () => {}
+  });
+  
+  // Create a provider component
+  export const LanguageProvider = ({ children }) => {
+    const [language, setLanguage] = useState('es');
+    
+    const toggleLanguage = () => {
+      setLanguage(prevLang => prevLang === 'es' ? 'en' : 'es');
+    };
+    
+    return (
+      <LanguageContext.Provider value={{ language, toggleLanguage }}>
+        {children}
+      </LanguageContext.Provider>
+    );
+  };
 
   const Header = () => {
     const location = useLocation();
     const navigate = useNavigate();
     const [isScrolled, setIsScrolled] = useState(false);
+    const { language, toggleLanguage } = useContext(LanguageContext);
 
     useEffect(() => {
       const handleScroll = () => {
@@ -50,10 +72,15 @@
           <Link to="/" className="logo">Mi Portafolio</Link>
           <nav>
             <ul className="nav-links">
-              <li><a href="#projects" onClick={(e) => scrollToSection(e, '#projects')}>Proyectos</a></li>
-              <li><a href="#skills" onClick={(e) => scrollToSection(e, '#skills')}>Habilidades</a></li>
-              <li><a href="#about" onClick={(e) => scrollToSection(e, '#about')}>Sobre Mí</a></li>
-              <li><NavLink to="/contact" className={({ isActive }) => isActive ? 'active' : ''}>Contacto</NavLink></li>
+              <li><a href="#projects" onClick={(e) => scrollToSection(e, '#projects')}>{language === 'es' ? 'Proyectos' : 'Projects'}</a></li>
+              <li><a href="#skills" onClick={(e) => scrollToSection(e, '#skills')}>{language === 'es' ? 'Habilidades' : 'Skills'}</a></li>
+              <li><a href="#about" onClick={(e) => scrollToSection(e, '#about')}>{language === 'es' ? 'Sobre Mí' : 'About'}</a></li>
+              <li><NavLink to="/contact" className={({ isActive }) => isActive ? 'active' : ''}>{language === 'es' ? 'Contacto' : 'Contact'}</NavLink></li>
+              <li>
+                <button onClick={toggleLanguage} className="language-toggle">
+                  {language === 'es' ? 'EN' : 'ES'}
+                </button>
+              </li>
             </ul>
           </nav>
         </div>

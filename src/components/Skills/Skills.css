@@ -1,6 +1,8 @@
-.skills-section {
+.skills {
   padding: 4rem 2rem;
   text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .section-title {
@@ -9,42 +11,133 @@
   color: var(--text-color);
   text-transform: uppercase;
   letter-spacing: 2px;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 10px;
 }
 
-.skills-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 2rem;
-  flex-wrap: wrap;
+.section-title::after {
+  content: '';
+  position: absolute;
+  width: 50%;
+  height: 3px;
+  bottom: 0;
+  left: 25%;
+  background: var(--primary-color);
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  padding: 0 2rem;
 }
 
 .skill-card {
-  background-color: rgba(255, 255, 255, 0.05);
-  border-radius: 10px;
-  padding: 2rem;
-  width: 150px;
-  height: 150px;
+  background-color: rgba(255, 255, 255, 0.02);
+  border-radius: 12px;
+  padding: 1.5rem 1rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  height: 100%;
+  min-height: 200px;
+  backdrop-filter: blur(5px);
 }
 
 .skill-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+  border-color: var(--primary-color);
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Estilos para los logos SVG */
+.skill-logo {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
 }
 
 .skill-logo svg {
-  width: 70px;
-  height: 70px;
-  margin-bottom: 1rem;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
 }
 
-.skill-name {
+/* Ajustes específicos para cada logo */
+.skill-logo svg[fill="#f0db4f"] { /* JavaScript */
+  transform: scale(1.2);
+}
+
+.skill-logo svg[fill="#61dafb"] { /* React */
+  transform: scale(1.3);
+}
+
+.skill-logo svg[fill="#264de4"] { /* CSS3 */
+  transform: scale(1.1);
+}
+
+.skill-logo svg[fill="#E34F26"] { /* HTML5 */
+  transform: scale(1.1);
+}
+
+.skill-logo svg[fill="#F05032"] { /* Git */
+  transform: scale(1.1);
+}
+
+.skill-logo svg[fill="#181717"] { /* GitHub */
+  transform: scale(1.1);
+}
+
+.skill-card:hover .skill-logo {
+  transform: scale(1.05);
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--primary-color);
+}
+
+.skill-card h3 {
   font-size: 1rem;
   font-weight: 500;
   color: var(--text-color);
+  margin: 0.5rem 0 0;
+  text-align: center;
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+  .skills-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0 1rem;
+  }
+  
+  .skills {
+    padding: 3rem 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+    max-width: 300px;
+    margin: 0 auto;
+  }
 }
