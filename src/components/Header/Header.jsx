@@ -69,7 +69,7 @@
     return (
       <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
         <div className="header-content">
-          <Link to="/" className="logo">Mi Portafolio</Link>
+          <Link to="/" className="logo">{language === 'es' ? 'Mi Portafolio' : 'My Portfolio'}</Link>
           <nav>
             <ul className="nav-links">
               <li><a href="#projects" onClick={(e) => scrollToSection(e, '#projects')}>{language === 'es' ? 'Proyectos' : 'Projects'}</a></li>
