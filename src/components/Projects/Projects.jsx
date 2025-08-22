@@ -22,9 +22,9 @@ const getProjectData = (language) => [
   {
     title: 'LandaGtf',
     description: language === 'es' ? 'Profesor de Taekwondo' : 'Taekwondo Instructor',
-    technologies: ['HTML', 'CSS', 'JavaScript', 'PowerShell'],
+    technologies: ['React', 'CSS', 'JavaScript', 'Vite'],
     codeLink: 'https://github.com/Fuljoq/LandaGtf.git',
-    demoLink: 'https://landagtf.netlify.app'
+    demoLink: 'https://landa-gtf.vercel.app'
   }
 ];
 

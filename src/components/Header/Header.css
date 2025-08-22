@@ -5,8 +5,8 @@
   left: 0;
   width: 100%;
   z-index: 1000;
-  padding: 1rem 0;
-  background-color: rgba(0, 0, 0, 0.9) !important; /* Fondo negro con opacidad */
+  padding: 1rem 0 1rem 1rem; /* Añadido padding a los lados */
+  background-color: rgba(0, 0, 0, 0.9) !important;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5) !important;
   backdrop-filter: blur(5px) !important;
   -webkit-backdrop-filter: blur(5px) !important;
@@ -21,10 +21,12 @@
 .header > div {
   max-width: 1200px;
   margin: 0 auto;
-  width: 90%;
+  width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; /* Separa el logo y la navegación */
   align-items: center;
+  padding: 0 2rem;
+  box-sizing: border-box;
 }
 
 /* Header content container */
@@ -36,6 +38,7 @@
   color: var(--text-color);
   text-decoration: none;
   transition: color 0.3s ease;
+  padding: 1rem 0 1rem 1.5rem !important;
 }
 
 .logo:hover {
@@ -48,6 +51,7 @@
   display: flex;
   gap: 2rem;
   margin: 0;
+  margin-left: auto; /* Mueve la navegación a la derecha */
   padding: 0;
 }
 

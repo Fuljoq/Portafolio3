@@ -1,16 +1,22 @@
 .projects {
-  padding-top: 6rem; /* Añade espacio en la parte superior para el navbar */
+  padding-top: 6rem;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 6rem 2rem 0;
+  box-sizing: border-box;
 }
 
 .projects h2 {
-  text-align: center;
-  margin-bottom: 2rem;
+  text-align: left;
+  margin: 0 0 2rem 0;
   font-size: 2.5rem;
-  padding-top: 2rem; /* Añade espacio adicional sobre el título */
+  width: 100%;
 }
 
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 1.5rem;
+  width: 100%;
 }
